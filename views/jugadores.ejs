@@ -33,7 +33,7 @@
   </table>
 
   <!-- MODULO DE PLANILLAS -->
-  <form onsubmit="window.location.reload()" id="formPlayer" class="col-lg-5 p-3">
+  <form id="formPlayer" class="col-lg-5 p-3">
     <input name="numero" placeholder="##" class="col-lg-1"></input>
     <input name="nombre" placeholder="Nombre" class="col-lg-6"></input>
     <input name="documento" placeholder="Documento" class="col-lg-3"></input>
@@ -50,6 +50,8 @@
           data[key] = value;
       });
       var jsonData = JSON.stringify(data);
+    
+    window.location.reload();
 
     fetch('/newPlayer', {
       method: 'POST',

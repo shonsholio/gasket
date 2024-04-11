@@ -24,7 +24,10 @@ controller.addPlayer = (req,res) => {
     } else {
       console.log('Datos guardados en playersA.json');
       res.send('Datos guardados');
-    }});
+    }
+  });
+  
+  window.location.reload()
     
 }
 
