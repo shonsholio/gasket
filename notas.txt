@@ -1,0 +1,28 @@
+IMPORTANTE PARA TENER EN CUENTA
+
+Vamos a trabajar la app por movimientos, asi que toca distinguir cuales son los movimientos que se dan durante el juego
+
+1. Inscripcion de jugadores
+    1. Editar jugadores
+    2. Marcar equipo inicialista
+    3. Cambios
+    4. faltas individuales
+
+2. Quien ganó el saque
+3. Anotacion
+    1. Tipos de anotación
+        1. Triple 
+          a. Derecho
+          b. Izquierdo
+        2. Doble
+          a. Tiro
+          b. bandeja
+        3. Tiro libre
+    2. Jugador
+    3. Anotó o no anotó
+4. Rebote
+    1. Ofensivo
+    2. Defensivo
+
+5. Otros datos
+
