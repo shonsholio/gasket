@@ -27,13 +27,14 @@
           <td><%=player.numero %></td>
           <td><%=player.nombre %></td>
           <td><%=player.documento %></td>
+          <td><button> - </button></td>
         </tr>
     <% }) %>  
         
   </table>
 
   <!-- MODULO DE PLANILLAS -->
-  <form id="formPlayer" class="col-lg-5 p-3">
+  <form onsubmit="window.location.reload()" id="formPlayer" class="col-lg-5 p-3">
     <input name="numero" placeholder="##" class="col-lg-1"></input>
     <input name="nombre" placeholder="Nombre" class="col-lg-6"></input>
     <input name="documento" placeholder="Documento" class="col-lg-3"></input>
@@ -47,20 +48,18 @@
       var formData = new FormData(event.target);
       var data = {};
       formData.forEach(function(value, key) {
-          data[key] = value;
+          data[key] = value.toUpperCase();
       });
       var jsonData = JSON.stringify(data);
-    
-    window.location.reload();
-
-    fetch('/newPlayer', {
-      method: 'POST',
-      headers: {
-                  'Content-Type': 'application/json'
-                },
-      body: jsonData
+      
+      fetch('/newPlayer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: jsonData
       })})
-
+      
   </script> 
 
 </body>

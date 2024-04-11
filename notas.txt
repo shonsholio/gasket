@@ -7,6 +7,7 @@ Vamos a trabajar la app por movimientos, asi que toca distinguir cuales son los 
     2. Marcar equipo inicialista
     3. Cambios
     4. faltas individuales
+    5. Verificar que no se dupliquen inscripciones
 
 2. Quien ganó el saque
 3. Anotacion

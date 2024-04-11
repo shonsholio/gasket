@@ -23,12 +23,11 @@ controller.addPlayer = (req,res) => {
       res.status(500).send('Error al guardar el archivo');
     } else {
       console.log('Datos guardados en playersA.json');
-      res.send('Datos guardados');
+      window.location.reload();
+
     }
   });
-  
-  window.location.reload()
-    
+      
 }
 
 controller.q1 = (req,res) => {
