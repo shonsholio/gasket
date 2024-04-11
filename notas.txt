@@ -2,6 +2,14 @@ IMPORTANTE PARA TENER EN CUENTA
 
 Vamos a trabajar la app por movimientos, asi que toca distinguir cuales son los movimientos que se dan durante el juego
 
+0. Datos el juego
+    1. nombres de los equipos
+    2. categoria
+    3. campeonato
+    4. fase
+    4. fecha
+    5. coach
+s
 1. Inscripcion de jugadores
     1. Editar jugadores
     2. Marcar equipo inicialista
@@ -10,6 +18,9 @@ Vamos a trabajar la app por movimientos, asi que toca distinguir cuales son los 
     5. Verificar que no se dupliquen inscripciones
 
 2. Quien ganó el saque
+  1. Que jugador salto
+  2. Hora del salto
+
 3. Anotacion
     1. Tipos de anotación
         1. Triple 

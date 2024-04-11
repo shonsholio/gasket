@@ -8,12 +8,14 @@
   <div class="d-flex justify-content-around ">
 
     <div class="col-lg-5 p-3">
-      <input id="equipoA" placeholder="EQUIPO A" class="border border-0 display-5"></input>
+      <% dataGame.forEach((game, index) => { %>
+        <p class="border border-0 display-5"><%= game.equipoA  %></p>
+      </div>
+      <div class="col-lg-5 bg-secondary text-white p-3">
+        <p class="border border-0 display-5"><%= game.equipoB  %></p>
+      </div>
     </div>
-    <div class="col-lg-5 bg-secondary text-white p-3">
-      <h4>EQUIPO B</h4>
-    </div>
-  </div>
+    <% }) %>
   
   <table class="col-lg-5 p-3 ">
     <!-- MODULO DE ENCABEZADO DE PLANILLAS -->
@@ -30,10 +32,10 @@
       <td><%=player.numero %></td>
       <td><%=player.nombre %></td>
       <td><%=parseInt(player.documento).toLocaleString() %></td>
-      <td><button> - </button></td>
+      <td><button id="borrar"> - </button></td>
     </tr>
     <% }) %>  
-        
+      
   </table>
 
   <!-- MODULO DE PLANILLAS -->
@@ -45,6 +47,7 @@
   </form>
 
   <script>
+
     document.getElementById('formPlayer').addEventListener('submit', function(event) {
       event.preventDefault();
 

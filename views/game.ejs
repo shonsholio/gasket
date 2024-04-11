@@ -1,0 +1,62 @@
+<%- include('partials/_header') %> %>
+
+  <a href="/">
+    <button>INICIO</button>
+  </a>
+
+  <form id="dataGame">
+
+    <div class="text-center">
+      <input name="fecha" id="fecha" type="date" required>
+      <select name="categoria" required> 
+        <option>CATEGORIA</option>
+        <option>U 12</option>
+        <option>U 14</option>
+        <option>U 16</option>
+      </select>
+      <input name="torneo" placeholder="TORNEO" required>
+      <input name="fase" placeholder="FASE" required>
+
+    </div>
+    
+    <div >
+      <div class="">
+        <input name="equipoA" placeholder="EQUIPO A" required>
+        <input name="coachA" placeholder="ENTRENADOR" required>
+      </div>
+  
+      <div class="">
+        <input name="equipoB" placeholder="EQUIPO B" required>
+        <input name="coachB" placeholder="ENTRENADOR" required>
+      </div>
+    </div>
+
+
+    <button>GUARDAR</button>
+  </form>
+
+  <script>
+    document.getElementById("dataGame").addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var formData = new FormData(event.target);
+      var dataGame = {};
+      formData.forEach(function(value, key) {
+          dataGame[key] = value.toUpperCase();
+      });
+      var jsonData = JSON.stringify(dataGame);
+      
+      fetch('/newGame', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: jsonData
+      })
+    })
+  
+  </script>
+
+</body>
+
+</html>     
