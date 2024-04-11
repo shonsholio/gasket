@@ -15,20 +15,23 @@
     </div>
   </div>
   
-  <table class="col-lg-5 p-3">
+  <table class="col-lg-5 p-3 ">
     <!-- MODULO DE ENCABEZADO DE PLANILLAS -->
-    <tr>
-      <th>NUMERO</th>
+    <tr class="bg-secondary text-white">
+      <th>##</th>
       <th>NOMBRE</th>
       <th>DOCUMENTO</th>
+      <th></th>
+
     </tr>
 
+    <tr class="">
     <% data.forEach((player, index) => { %>
-          <td><%=player.numero %></td>
-          <td><%=player.nombre %></td>
-          <td><%=player.documento %></td>
-          <td><button> - </button></td>
-        </tr>
+      <td><%=player.numero %></td>
+      <td><%=player.nombre %></td>
+      <td><%=parseInt(player.documento).toLocaleString() %></td>
+      <td><button> - </button></td>
+    </tr>
     <% }) %>  
         
   </table>
@@ -58,7 +61,8 @@
           'Content-Type': 'application/json'
         },
         body: jsonData
-      })})
+      })
+    })
       
   </script> 
 
