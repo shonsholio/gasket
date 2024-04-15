@@ -6,6 +6,8 @@ const mainController = require('../controllers/mainController')
 router.get('/', mainController.main)
 
 router.get('/players', mainController.players)
+router.post('/players', mainController.addPlayers)
+
 
 
 

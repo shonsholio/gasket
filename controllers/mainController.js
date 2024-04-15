@@ -15,4 +15,24 @@ controller.players = async (req,res) => {
     }) 
 }
 
+controller.addPlayers = async (req,res) => {
+  const body = req.body
+
+  try {
+    const newPlayer = await playersA.create(body)
+
+    playersA.find({})
+    .then(docs => {
+      res.render('jugadores', {
+        data: docs
+      })
+    }) 
+    
+  } 
+    catch (e) {
+    console.log(e)
+  }
+
+}
+
 module.exports = controller
