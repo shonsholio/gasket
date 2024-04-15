@@ -8,14 +8,12 @@
   <div class="d-flex justify-content-around ">
 
     <div class="col-lg-5 p-3">
-      <% dataGame.forEach((game, index) => { %>
-        <p class="border border-0 display-5"><%= game.equipoA  %></p>
+        <p class="border border-0 display-5"></p>
       </div>
       <div class="col-lg-5 bg-secondary text-white p-3">
-        <p class="border border-0 display-5"><%= game.equipoB  %></p>
+        <p class="border border-0 display-5"></p>
       </div>
     </div>
-    <% }) %>
   
   <table class="col-lg-5 p-3 ">
     <!-- MODULO DE ENCABEZADO DE PLANILLAS -->
@@ -29,9 +27,9 @@
 
     <tr class="">
     <% data.forEach((player, index) => { %>
-      <td><%=player.numero %></td>
+      <td><%=player.nro %></td>
       <td><%=player.nombre %></td>
-      <td><%=parseInt(player.documento).toLocaleString() %></td>
+      <td><%=player.documento %></td>
       <td><button id="borrar"> - </button></td>
     </tr>
     <% }) %>  
@@ -45,29 +43,6 @@
     <input name="documento" placeholder="Documento" class="col-lg-3"></input>
     <button type="submit">+</button>
   </form>
-
-  <script>
-
-    document.getElementById('formPlayer').addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      var formData = new FormData(event.target);
-      var data = {};
-      formData.forEach(function(value, key) {
-          data[key] = value.toUpperCase();
-      });
-      var jsonData = JSON.stringify(data);
-      
-      fetch('/newPlayer', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: jsonData
-      })
-    })
-      
-  </script> 
 
 </body>
 

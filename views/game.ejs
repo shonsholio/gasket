@@ -35,28 +35,6 @@
     <button>GUARDAR</button>
   </form>
 
-  <script>
-    document.getElementById("dataGame").addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      var formData = new FormData(event.target);
-      var dataGame = {};
-      formData.forEach(function(value, key) {
-          dataGame[key] = value.toUpperCase();
-      });
-      var jsonData = JSON.stringify(dataGame);
-      
-      fetch('/newGame', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: jsonData
-      })
-    })
-  
-  </script>
-
 </body>
 
 </html>     

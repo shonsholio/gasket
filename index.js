@@ -1,11 +1,20 @@
 const express = require('express');
-const fs = require('fs');
+const dotenv = require('dotenv')
+const mongoose = require('mongoose')
 const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
 const exp = require('constants');
 
 const app = express();
+
+dotenv.config( { path: './config.env'} )
+
+mongoose.connect(process.env.DB_CONNECTION)
+  .then(connection => {
+    console.log('CONECTADO A MONGO POR FIN')
+  })
+  .catch('ERROR AL CONECTAR MONGO')
 
 //IMPORTING ROUTES
 const mainRoutes = require('./routes/main');
@@ -30,3 +39,4 @@ app.use(express.static(path.join(__dirname, './public')))
 app.listen(app.get('port'), () => {
   console.log('CONECTADOS AL PUERTO ' + (app.get('port')))
 })
+
