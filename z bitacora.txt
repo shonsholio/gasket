@@ -1,3 +1,9 @@
 11/04/2024
 
 Quedo funcionando bien el registro de jugadores, quedo pendiente poder eliminar individualmente el registro por jugador
+
+* Ahora mi problema es que la informacion que crei se guardaba en los archivos JSON, realmente no se almacenan cuando esta en la nube. Asi que toca encontrar el metodo.
+
+12/04/2024
+
+La meta del dia es que quede funcionando el almacenamiento de los datos de cada juego en un servidor.

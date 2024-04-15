@@ -1,0 +1,44 @@
+<%- include('partials/_header') %> %>
+
+  <h1 class="text-center">SOLO TEST</h1>
+
+  <a href="/">
+    <button>INICIO</button>
+  </a>
+
+  <form id="formulario" action="/prueba" method="post">
+    <input name="nombre" placeholder="NOMBRE">NOMBRE</input>
+    <input name="edad" placeholder="EDAD">EDAD</input>
+    <button>GUARDAR</button>
+  </form>
+
+  <div class="">
+    <table class="col-lg-5">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>EDAD</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <% info.forEach((user, index) => { %>
+          <td><%=user.id %></td>
+          <td><%=user.nombre %></td>
+          <td><%=user.edad %></td>
+          <td><button class="btn btn-info text-white">#</button></td>
+          <td><button class="btn btn-danger">-</button></td>
+a
+
+          <td></td>
+        </tr> 
+          <% }) %>
+      </thead>
+    </tbody>
+  </div>
+  
+</body>
+
+</html>     

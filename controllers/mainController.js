@@ -1,7 +1,11 @@
 const controller = {}
-const fs = require('fs');
+
 const data = require('../playersA.json')
 const dataGame = require('../dataGame.json')
+const info = require('../api.json')
+
+const fs = require('fs');
+
 
 
 controller.main = (req,res) => {
@@ -26,7 +30,7 @@ controller.addPlayer = (req,res) => {
   console.log(data)
   data.push(req.body)
   console.log(data)
-  
+
   fs.writeFile('playersA.json', JSON.stringify(data), (err) => {
     if (err) {
       console.error('Error al guardar el archivo:', err);
@@ -58,6 +62,31 @@ controller.addGame = (req,res) => {
 
 controller.q1 = (req,res) => {
   res.render('periodos')
+}
+
+controller.q4 = (req,res) => {
+  res.render('prueba')
+}
+
+controller.probar = (req,res) => {
+  const users = JSON.parse(fs.readFileSync('api.json')).users
+  res.render("prueba", {info: users})
+}
+
+controller.prueba = (req,res) => {
+
+  const users = JSON.parse(fs.readFileSync('api.json')).users ;
+
+  let user = {
+      id:Date.now(),
+      nombre: req.body.nombre,
+      edad: req.body.edad
+  }
+
+  users.push(user)
+
+  fs.writeFileSync('api.json', JSON.stringify({ users }))
+
 }
 
 module.exports = controller
