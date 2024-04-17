@@ -8,7 +8,7 @@ const exp = require('constants');
 
 const app = express();
 
-dotenv.config( { path: './config.env'} )
+dotenv.config( { path: './config.env' } )
 
 mongoose.connect(process.env.MONGODB_CONNECT_URI)
   .then(connection => {
