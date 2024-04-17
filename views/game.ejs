@@ -4,36 +4,49 @@
     <button>INICIO</button>
   </a>
 
-  <form id="dataGame">
-
-    <div class="text-center">
-      <input name="fecha" id="fecha" type="date" required>
-      <select name="categoria" required> 
-        <option>CATEGORIA</option>
-        <option>U 12</option>
-        <option>U 14</option>
-        <option>U 16</option>
-      </select>
-      <input name="torneo" placeholder="TORNEO" required>
-      <input name="fase" placeholder="FASE" required>
-
-    </div>
+  <div class="d-lg-flex justify-content-center" >
+    <form action="/game" method="post" id="formGame">
+  
+      <div class="text-center">
+        <input name="fecha" id="fecha" type="date" required>
+        <select name="categoria" required> 
+          <option>CATEGORIA</option>
+          <option>U 12</option>
+          <option>U 14</option>
+          <option>U 16</option>
+        </select>
+        <input name="torneo" placeholder="TORNEO" required>
+        <input name="fase" placeholder="FASE" required>
+  
+      </div>
+      
+      <div >
+        <div class="">
+          <input name="equipoA" placeholder="EQUIPO A" required>
+          <input name="coachA" placeholder="ENTRENADOR" required>
+        </div>
     
-    <div >
-      <div class="">
-        <input name="equipoA" placeholder="EQUIPO A" required>
-        <input name="coachA" placeholder="ENTRENADOR" required>
+        <div class="">
+          <input name="equipoB" placeholder="EQUIPO B" required>
+          <input name="coachB" placeholder="ENTRENADOR" required>
+        </div>
       </div>
   
-      <div class="">
-        <input name="equipoB" placeholder="EQUIPO B" required>
-        <input name="coachB" placeholder="ENTRENADOR" required>
-      </div>
+  
+      <button>GUARDAR</button>
+    </form>
+
+    <div>
+      <% data.forEach((dataGame, index) => { %>
+      <h3><%=dataGame.fecha %>  </h3>
+      <h3><%=dataGame.equipoA %>  </h3>
+      <h3><%=dataGame.equipoB %>  </h3>
+
+
+
+      <% }) %>
     </div>
-
-
-    <button>GUARDAR</button>
-  </form>
+  </div>
 
 </body>
 

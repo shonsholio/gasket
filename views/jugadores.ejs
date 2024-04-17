@@ -7,15 +7,32 @@
   <!-- MODULO DE NOMBRE DE EQUIPOS -->
   <div class="d-flex justify-content-around ">
 
-    <div class="col-lg-5 p-3">
-        <p class="border border-0 display-5"></p>
-      </div>
-      <div class="col-lg-5 bg-secondary text-white p-3">
-        <p class="border border-0 display-5"></p>
-      </div>
+    <% info.forEach((game, index) => { %>
+      
+    <div class="col-lg-6 d-block justify-content-center">
+      <p class="border border-0 display-5"><%=game.equipoA %></p>
+      <p class="border border-0">Coach: <%=game.coachA %></p>
     </div>
-  
-  <table class="col-lg-5 p-3 ">
+    
+    <div class="col-lg-6">
+      <p class="border border-0 display-5"><%=game.equipoB %></p>
+      <p class="border border-0">Coach: <%=game.coachB %></p>      
+    </div>
+
+    <% }) %>
+
+  </div>
+
+  <div class="d-lg-flex align-items-center">
+    <form action="/players" method="post" onsubmit="window.location.reload()" id="formPlayer" class="col-lg-5">
+      <input name="nro" placeholder="##" class="col-lg-1" required></input>
+      <input name="nombre" placeholder="Nombre" class="col-lg-6" required></input>
+      <input name="documento" placeholder="Documento" class="col-lg-3" required></input>
+      <button class="btn btn-info text-white" >+</button>
+    </form>
+  </div>
+
+  <table class="col-lg-5">
     <!-- MODULO DE ENCABEZADO DE PLANILLAS -->
     <tr class="bg-secondary text-white">
       <th>##</th>
@@ -30,19 +47,13 @@
       <td><%=player.nro %></td>
       <td><%=player.nombre %></td>
       <td><%=player.documento %></td>
-      <td><button id="borrar"> - </button></td>
+      <td><a href="/deletePlayer/<%=player.documento %>"><button class="btn btn-danger"> - </button></td></a>
     </tr>
     <% }) %>  
       
   </table>
 
   <!-- MODULO DE PLANILLAS -->
-  <form action="/players" method="post" onsubmit="window.location.reload()" id="formPlayer" class="col-lg-5 p-3">
-    <input name="nro" placeholder="##" class="col-lg-1"></input>
-    <input name="nombre" placeholder="Nombre" class="col-lg-6"></input>
-    <input name="documento" placeholder="Documento" class="col-lg-3"></input>
-    <button>+</button>
-  </form>
 
 </body>
 
