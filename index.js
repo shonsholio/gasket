@@ -10,7 +10,7 @@ const app = express();
 
 dotenv.config( { path: './config.env' } )
 
-mongoose.connect(process.env.MONGODB_CONNECT_URI)
+mongoose.connect(process.env.MONGODB_URI)
   .then(connection => {
     console.log('Por fin conectados a Mongo')
   })

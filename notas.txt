@@ -3,6 +3,7 @@ IMPORTANTE PARA TENER EN CUENTA
 Vamos a trabajar la app por movimientos, asi que toca distinguir cuales son los movimientos que se dan durante el juego
 
 a. Landing
+  1. Nombre de la app
   1. Juego nuevo
   2. Cargar juego
 
