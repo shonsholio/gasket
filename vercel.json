@@ -12,11 +12,5 @@
         "dest": "/"
       }
   ]
-  // ,
-  // "env": {
-  //   "MONGODB_URI": "@mongo_uri",
-  //   "MONGODB_DB_NAME": "@mongo_db_name"
-  // }
-  
 }
    

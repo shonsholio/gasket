@@ -46,12 +46,7 @@ controller.addPlayers = async (req,res) => {
 }
 
 controller.game = async (req,res) => {
-  dataGame.find({})
-    .then(docs => {
-      res.render('game', {
-        data: docs
-      })
-    })
+  res.render('game')
 }
 
 controller.addGame = async (req,res) => {
@@ -60,12 +55,12 @@ controller.addGame = async (req,res) => {
   try {
     const newGame = await dataGame.create(body)
   
-    console.log(dataGame)
+    res.redirect('/players')
     
   } 
     catch (e) {
     console.log(e)
-}
+  }
 }
 
 controller.deletePlayer = async (req,res) => {
