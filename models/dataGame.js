@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 
 const UserScheme = new mongoose.Schema({
     fecha: Date,
-    campeonato: String,
+    torneo: String,
     categoria: String,
     fase: String,
     equipoA: String,
     coachA: String,
     equipoB: String,
-    coachB: String
+    coachB: String,
+    idGame: String
   })
 
 const dataGame = mongoose.model('dataGame', UserScheme)

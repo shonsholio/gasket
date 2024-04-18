@@ -1,0 +1,23 @@
+<%- include('partials/_header') %> %>
+
+  <h1>ALL GAMES</h1>
+
+  <% data.forEach((games,index) => { %>
+
+  <a href="/players?idGame=<%=games.idGame %>">
+    <button>
+      <p><%=games.equipoA %> vs <%=games.equipoB %></p>
+      <p><%=games.fase %> , <%=games.torneo %></p>
+      <p><%=games.idGame %></p>
+    </button>
+  </a>
+
+  <% }) %>
+
+  <script>
+
+  </script>
+
+</body>
+
+</html>       

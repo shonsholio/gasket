@@ -4,7 +4,8 @@ const UserScheme = new mongoose.Schema({
     id: Number,
     nro: Number,
     nombre: String,
-    documento: Number
+    documento: Number,
+    idGame: String
   })
 
 const Player = mongoose.model('PlayerA', UserScheme)
