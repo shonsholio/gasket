@@ -4,18 +4,22 @@
       <button>INICIO</button>
     </a>
 
-    <div class="d-flex">
+    <div class="d-flex text-center">
       <% infoGame.forEach((infoGame, index) => { %>
-        <h2><%= infoGame.equipoA %></h2>
+        <p class="display-3"><%= infoGame.equipoA.toUpperCase() %></p>
       <% }) %>  
-      
-      <% playersA.forEach((playersA, index) => { %>
-        <option><%=playersA.nro %></option>
-      <% }) %>  
+    
+    <!-- ---------- SELECTOR DE JUGADOR ---------------     -->
+      <select name="" id="" class="display-6">
+      <% for (i=0; i < playersA.length; ++i) { %>
+        <option><%=playersA[i].nro %></option>
+      <% } %>  
+      </select>
+
     </div>
 
     <div class="d-flex">
-      
+
       <div class="col-2">
         <button id="cero" class="p-4 btn btn-danger">0</button>
         <button id="dos" class="p-4 btn btn-danger">2</button>
