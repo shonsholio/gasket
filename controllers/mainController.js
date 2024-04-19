@@ -1,8 +1,9 @@
 const controller = {}
 
 const playersA = require('../models/playerAs')
+const playersB = require('../models/playerBs')
+
 const dataGame = require('../models/dataGame')
-const { MongoCryptInvalidArgumentError } = require('mongodb')
 
 controller.main = (req,res) => {
   res.render('main')
@@ -14,27 +15,45 @@ controller.players = async (req,res) => {
   dataGame.find( {idGame: idGame})
   .then(docs => { 
     playersA.find( {idGame: idGame} )
-    .then(players => {
+    .then(playersA => {
+    playersB.find( {idGame: idGame} )
+    .then(playersB => {
       res.render('jugadores', {
         data: docs,
-        players: players
+        playersA: playersA,
+        playersB: playersB
       })
     })
-  })
+  })})
 }
 
 controller.addPlayers = async (req,res) => {
   const body = req.body
+  
+  if (body.equipo == 'A') {
 
-  try {
-    const newPlayer = await playersA.create(body)
+    try {
+      const newPlayer = await playersA.create(body)
 
-    res.redirect(`/players?idGame=${body.idGame}`)
-    
-    } 
-    catch (e) {
-      console.log(e)
-    } 
+      res.redirect(`/players?idGame=${body.idGame}`)
+      
+      } 
+      catch (e) {
+        console.log(e)
+      } 
+
+  } else {
+
+    try {
+      const newPlayer = await playersB.create(body)
+
+      res.redirect(`/players?idGame=${body.idGame}`)
+      
+      } 
+      catch (e) {
+        console.log(e)
+      }     
+  }
     
 }
 
@@ -76,18 +95,32 @@ controller.selectGame = (req,res) => {
 }
 
 controller.deletePlayer = async (req,res) => {
-  const direccion = req.body
-  console.log(direccion)
+  const datas = req.query.idGame.split('-')
 
-  let parametro = req.params.documento
+  let direccion = datas[0]
+  let parametro = datas[1]
   
   playersA.deleteOne({ documento: parametro})
     .then(result => {
       console.log(`Documento eliminado: ${result.deletedCount}`);
-      res.redirect('/players')
+      res.redirect(`/players?idGame=${direccion}`)
   })
   .catch(err => console.error(err));
+}
 
+controller.q1 = (req,res) => {
+  let idGame = req.query.idGame
+
+  dataGame.find({ idGame: idGame })
+  .then(infoGame => {
+  playersA.find({ idGame: idGame })
+  .then(playersA => {
+    res.render('periodos', {
+      infoGame: infoGame,
+      playersA: playersA,
+    })
+  })  
+  })
 }
 
 

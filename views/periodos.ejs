@@ -1,17 +1,37 @@
 <%- include('partials/_header') %> %>
 
-  <h1 class="text-center">SCORE</h1>
-
     <a href="/">
       <button>INICIO</button>
     </a>
 
-  <button id="suma" class="p-4">+</button>
-  <button id="resta" class="p-4">-</button>
+    <div class="d-flex">
+      <% infoGame.forEach((infoGame, index) => { %>
+        <h2><%= infoGame.equipoA %></h2>
+      <% }) %>  
+      
+      <% playersA.forEach((playersA, index) => { %>
+        <option><%=playersA.nro %></option>
+      <% }) %>  
+    </div>
 
-  <h2 id="scoring" class="display-1"></h2>
+    <div class="d-flex">
+      
+      <div class="col-2">
+        <button id="cero" class="p-4 btn btn-danger">0</button>
+        <button id="dos" class="p-4 btn btn-danger">2</button>
+        <button id="uno" class="p-4 btn btn-danger">1</button>
+        <button id="tres" class="p-4 btn btn-danger">3</button>
+      </div>
 
-  <script src="score.js"></script>
+      <h2 id="scoring" class="display-1 col-3"></h2> 
+    </div>
+    
+    
+
+
+
+
+  <script src="score.js"></script> 
 
 </body>
 

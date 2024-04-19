@@ -9,6 +9,6 @@ const UserScheme = new mongoose.Schema({
     equipo: String
   })
 
-const Player = mongoose.model('PlayerA', UserScheme)
+const Player = mongoose.model('PlayerB', UserScheme)
 
 module.exports = Player
